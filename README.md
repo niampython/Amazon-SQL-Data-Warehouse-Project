@@ -32,4 +32,4 @@ Develop SQL-Based analytics and Tableau reporting for detailed insights of:
 -**Product Performance**
 -**Intelligence on Customer buying trends**
 
---
+---
