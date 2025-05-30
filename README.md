@@ -60,6 +60,7 @@ GROUP BY [product_name]
 
 WHERE rank_by_orders <=5
 ``` 
+![image](https://github.com/user-attachments/assets/c897b525-c61b-4701-be0b-9e98984f1860)
 
 
 ***Top ten products with lowest profit by margin***
@@ -76,3 +77,5 @@ GROUP BY product_name
 ) m
 where rank_by_profit_margin <=10
 ```
+![image](https://github.com/user-attachments/assets/946d49fe-c332-47fa-9ed6-0645fcba13e4)
+
