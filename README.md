@@ -34,3 +34,15 @@ Develop SQL-Based analytics and Tableau reporting for detailed insights of:
 
 ---
 
+**Data Architechture**
+
+The data architecture for this project is using the Medallion model.  Going by Bronze, Silver, and Gold layers:
+
+![image](https://github.com/user-attachments/assets/7be8496e-dfe0-4c6e-adef-b03f1cd9131c)
+
+1. **Bronze Lyaer**: The first layer where the extracted data is loaded too.
+     The bronze layer consist of raw data, extracted from a csv file, into SQL server database.
+2. **Silver Layer**:  In this layer is where data is normalized, cleansed, standardized, and prepared for the final destination for analysis.
+3. **Gold Layer**:  During this phase, the data is production ready and ready to be used by data analyst and business users.
+     This data can be used for reporting or ad hoc queries.
+
