@@ -14,7 +14,7 @@ The objective is to get the data from the data sources to the end users (data an
 Create a data warehouse using SQL Server to centralize data from Amazon and provide production ready data to end-users.
 
 #### Specifications
--**Data Sources**: Import data from several different sources in excel files.
+-**Data Sources**: Import data from several different sources in excel files.\n
 -**Data Quality**: Cleanse and resolve data quality issues prior to loading data to final stage.
 -**Integration**: Combine all sources into a single, user_friendly data model designed for analytical queries.
 -**Scope**: Historization is not needed for this project, only updated data is wanted.
