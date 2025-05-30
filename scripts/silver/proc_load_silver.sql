@@ -39,8 +39,13 @@ BEGIN
 	INSERT INTO [silver].[Amazon_Data_Set_customers](
 	[Customer_ID],[first_name], [last_name],[state],[cst_create_date]
 	)
-	
-	SELECT[Customer_ID],TRIM([first_name]), TRIM([last_name]),[state],[cst_create_date]
+	SELECT[Customer_ID],TRIM([first_name]), TRIM([last_name]),
+	CASE WHEN state = 'AL' THEN 'Alabama'
+	WHEN state = 'CO' THEN 'Colorado'
+	WHEN state = 'TX' THEN 'Texas'
+	WHEN state = 'VA' THEN 'Virginia'
+	ELSE state END [state],
+	[cst_create_date]
 	FROM
 	(
 	SELECT *, ROW_NUMBER() OVER(PARTITION BY [Customer_ID] ORDER BY [cst_create_date] DESC) Flag_Most_Recent_date
