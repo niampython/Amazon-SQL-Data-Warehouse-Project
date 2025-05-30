@@ -15,8 +15,7 @@ WHERE rank_by_orders <=5
 
 
 ***Top ten products with lowest profit by margin***
- '''sql
-
+```sql
 select *
 from
 (
@@ -28,4 +27,4 @@ oi.product_id = p.product_id
 GROUP BY product_name
 ) m
 where rank_by_profit_margin <=10
-'''
+```
