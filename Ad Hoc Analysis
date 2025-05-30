@@ -1,6 +1,5 @@
 ***Top 5 products by # of orders***
 '''sql
-
 SELECT * 
 FROM
 (
@@ -12,7 +11,6 @@ GROUP BY [product_name]
 ) product_by_orders
 
 WHERE rank_by_orders <=5
-
 ''' 
 
 
