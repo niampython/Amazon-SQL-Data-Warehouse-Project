@@ -45,37 +45,3 @@ The data architecture for this project is using the Medallion model.  Going by B
 2. **Silver Layer**:  In this layer is where data is normalized, cleansed, standardized, and prepared for the final destination for analysis.
 3. **Gold Layer**:  During this phase, the data is production ready and ready to be used by data analyst and business users.
      This data can be used for reporting or ad hoc queries.
-
-***Top 5 products by # of orders***
-'''sql
-
-SELECT * 
-FROM
-(
-SELECT  [product_name], count(order_id) count_of_orders, dense_rank() over(order by count(order_id) desc) rank_by_orders
-FROM [gold].[Amazon_Data_Set_products] p
-LEFT JOIN [gold].[Amazon_Data_Set_orders_items] oi
-ON p.product_id = oi.product_id
-GROUP BY [product_name]
-) product_by_orders
-
-WHERE rank_by_orders <=5
-
-''' 
-
-
-***Top ten products with lowest profit by margin***
- '''sql
-
-select *
-from
-(
-SELECT product_name, sum([quantity]*[price_per_unit])/ sum(cogs) profit_margin_by_product, 
-dense_rank() over(order by sum([quantity]*[price_per_unit])/ sum(cogs) desc) rank_by_profit_margin
-FROM [gold].[Amazon_Data_Set_orders_items] oi INNER JOIN 
-[gold].[Amazon_Data_Set_products] p ON 
-oi.product_id = p.product_id
-GROUP BY product_name
-) m
-where rank_by_profit_margin <=10
-'''
