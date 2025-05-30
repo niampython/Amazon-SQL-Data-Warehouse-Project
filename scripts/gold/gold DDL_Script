@@ -1,0 +1,72 @@
+/*
+=========================================
+DDL Script: Create gold Tables
+=========================================
+Script Purpose:
+	This script creates tables in the 'gold' schema
+	In order to drop these tables, you must first disable foreign keys on related tables.
+=========================================
+*/
+
+CREATE TABLE gold.Amazon_Data_Set_category
+(
+category_id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,	
+category_name VARCHAR(30) NULL,
+[dwh_create_date] DATE
+);
+
+GO 
+
+
+CREATE TABLE gold.Amazon_Data_Set_products
+(
+product_id	INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+product_name VARCHAR(50) NULL,
+price	DECIMAL(10,2) NULL,
+cogs	DECIMAL(10,2) NULL,
+category_id INT NULL,
+[dwh_create_date] DATE,
+CONSTRAINT Category_foreign_key FOREIGN KEY (category_id)
+REFERENCES gold.Amazon_Data_Set_category(category_id)
+)
+
+GO
+
+
+CREATE TABLE gold.Amazon_Data_Set_customers
+(
+Customer_ID	 INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+first_name	VARCHAR(25) NOT NULL,
+last_name	VARCHAR(25) NOT NULL,
+state      VARCHAR(25),
+[dwh_create_date] DATE
+)
+
+
+CREATE TABLE gold.Amazon_Data_Set_orders
+(
+order_id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+order_date	DATE NULL,
+customer_id	INT NULL,
+seller_id	INT NULL,
+order_status VARCHAR(11)  NULL ,
+[dwh_create_date] DATE 
+CONSTRAINT customer_id_fkey FOREIGN KEY (customer_id)
+REFERENCES gold.Amazon_Data_Set_customers(customer_id)
+)
+
+GO
+
+CREATE TABLE gold.Amazon_Data_Set_orders_items
+(
+order_item_id INT  NOT NULL IDENTITY(1,1) PRIMARY KEY,	
+order_id INT NULL,
+product_id INT NULL,
+quantity INT NULL,	
+price_per_unit DECIMAL(10,2) NULL,
+[dwh_create_date] DATE NULL,
+CONSTRAINT orders_id_fkey FOREIGN KEY (order_id)
+REFERENCES gold.Amazon_Data_Set_orders(order_id),
+CONSTRAINT products_id_fkey FOREIGN KEY (product_id)
+REFERENCES gold.Amazon_Data_Set_products(product_id)
+)
