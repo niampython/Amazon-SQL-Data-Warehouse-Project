@@ -1,5 +1,5 @@
 ***Top 5 products by # of orders***
-'''
+'''sql
 
 SELECT * 
 FROM
@@ -13,11 +13,11 @@ GROUP BY [product_name]
 
 WHERE rank_by_orders <=5
 
-''' sql
+''' 
 
 
 ***Top ten products with lowest profit by margin***
- '''
+ '''sql
 
 select *
 from
@@ -30,4 +30,4 @@ oi.product_id = p.product_id
 GROUP BY product_name
 ) m
 where rank_by_profit_margin <=10
-''' sql
+'''
