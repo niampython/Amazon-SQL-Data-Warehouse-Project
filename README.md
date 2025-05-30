@@ -28,9 +28,9 @@ Create a data warehouse using SQL Server to centralize data from Amazon and prov
 
 Develop SQL-Based analytics and Tableau reporting for detailed insights of:
 
--**Sales Trends**
--**Product Performance**
--**Intelligence on Customer buying trends**
+* **Sales Trends**
+* **Product Performance**
+* **Intelligence on Customer buying trends**
 
 ---
 
