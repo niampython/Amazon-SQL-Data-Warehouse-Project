@@ -30,6 +30,11 @@ FROM [silver].[Amazon_Data_Set_customers]
 where first_name <> trim(first_name) or last_name <> trim(last_name)
 or state <> trim(state)  
 
+--checking if state name is spelled out fully
+SELECT distinct state 
+from [bronze].[Amazon_Data_Set_customers]
+where len(state) = 2
+
 --===============================================
 --quality check products table
 --=================================================
