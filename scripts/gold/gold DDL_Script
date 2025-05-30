@@ -12,7 +12,7 @@ CREATE TABLE gold.Amazon_Data_Set_category
 (
 category_id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,	
 category_name VARCHAR(30) NULL,
-[dwh_create_date] DATE
+create_date DATE
 );
 
 GO 
@@ -25,7 +25,7 @@ product_name VARCHAR(50) NULL,
 price	DECIMAL(10,2) NULL,
 cogs	DECIMAL(10,2) NULL,
 category_id INT NULL,
-[dwh_create_date] DATE,
+[create_date] DATE,
 CONSTRAINT Category_foreign_key FOREIGN KEY (category_id)
 REFERENCES gold.Amazon_Data_Set_category(category_id)
 )
@@ -39,7 +39,7 @@ Customer_ID	 INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 first_name	VARCHAR(25) NOT NULL,
 last_name	VARCHAR(25) NOT NULL,
 state      VARCHAR(25),
-[dwh_create_date] DATE
+[create_date] DATE
 )
 
 
@@ -50,7 +50,7 @@ order_date	DATE NULL,
 customer_id	INT NULL,
 seller_id	INT NULL,
 order_status VARCHAR(11)  NULL ,
-[dwh_create_date] DATE 
+[create_date] DATE 
 CONSTRAINT customer_id_fkey FOREIGN KEY (customer_id)
 REFERENCES gold.Amazon_Data_Set_customers(customer_id)
 )
@@ -64,7 +64,7 @@ order_id INT NULL,
 product_id INT NULL,
 quantity INT NULL,	
 price_per_unit DECIMAL(10,2) NULL,
-[dwh_create_date] DATE NULL,
+[create_date] DATE NULL,
 CONSTRAINT orders_id_fkey FOREIGN KEY (order_id)
 REFERENCES gold.Amazon_Data_Set_orders(order_id),
 CONSTRAINT products_id_fkey FOREIGN KEY (product_id)
