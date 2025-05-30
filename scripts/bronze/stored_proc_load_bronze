@@ -79,7 +79,8 @@ BEGIN
 		
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: [bronze].[Amazon_Data_Set_order_items]'
-		TRUNCATE TABLE [bronze].[Amazon_Data_Set_order_items];
+		
+		TRUNCATE TABLE [bronze].[Amazon_Data_Set_orders_items];
 		
 		PRINT '>> Inserting Data Into: [bronze].[Amazon_Data_Set_orders_items]'
 		BULK INSERT [bronze].[Amazon_Data_Set_orders_items]
