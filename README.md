@@ -33,4 +33,4 @@ Develop SQL-Based analytics and Tableau reporting for detailed insights of:
 -**Intelligence on Customer buying trends**
 
 ---
-![image](https://github.com/user-attachments/assets/1f46bec1-e34c-487a-a05f-d977ed90ab78)
+
